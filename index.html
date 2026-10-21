@@ -1,0 +1,267 @@
+# birthday-surprise-2026
+A little surprise waiting to unfold 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: white;
+    text-align: center;
+    background: linear-gradient(
+        135deg,
+        #16002e,
+        #63004f,
+        #d4145a
+    );
+    background-size: 300% 300%;
+    animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.badge {
+    padding: 10px 22px;
+    border: 1px solid #ffffff80;
+    border-radius: 30px;
+    background: #ffffff15;
+    backdrop-filter: blur(10px);
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+h1 {
+    font-size: clamp(35px, 8vw, 65px);
+    margin: 25px 0 10px;
+    color: #fff;
+    text-shadow: 0 0 20px #ff9acb;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ff8ec7; }
+    to { text-shadow: 0 0 30px #fff, 0 0 50px #ff1493; }
+}
+
+.name {
+    color: #ffd1e8;
+    font-size: clamp(28px, 6vw, 45px);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.cake {
+    font-size: 95px;
+    margin: 15px;
+    animation: bounce 2s infinite;
+    filter: drop-shadow(0 0 15px #ffb6d9);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.message {
+    max-width: 550px;
+    line-height: 1.8;
+    font-size: 17px;
+    color: #ffeaf5;
+    margin: 10px auto 25px;
+}
+
+button {
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #a00052;
+    background: linear-gradient(90deg, #fff, #ffc7e2);
+    box-shadow: 0 0 20px #ff8ec7;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px #fff;
+}
+
+#surprise {
+    display: none;
+    max-width: 500px;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 20px;
+    background: #ffffff18;
+    border: 1px solid #ffffff60;
+    backdrop-filter: blur(10px);
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 13px;
+    color: #ffcce4;
+}
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    animation: floatUp linear forwards;
+    z-index: -1;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.sparkle {
+    position: fixed;
+    pointer-events: none;
+    animation: sparkle 1s ease-out forwards;
+}
+
+@keyframes sparkle {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(2) translateY(-50px);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="badge">✨ A SPECIAL DAY ✨</div>
+
+    <h1>Happy Birthday!</h1>
+
+    <!-- Change the name below -->
+    <div class="name">Dear Bestie ❤️</div>
+
+    <div class="cake">🎂</div>
+
+    <p class="message">
+        Today is all about YOU! 💖<br>
+        May your life be filled with endless happiness,
+        beautiful memories, magical moments, and
+        dreams that come true. ✨<br><br>
+        You deserve all the love and smiles in the world.
+        Keep shining and never stop being amazing! 🌸
+    </p>
+
+    <button onclick="showSurprise()">
+        🎁 Open Your Surprise
+    </button>
+
+    <div id="surprise">
+        <h2>💌 A Little Birthday Wish 💌</h2>
+        <br>
+        <p>
+            May every new day bring you a reason to smile,
+            every dream bring you closer to happiness,
+            and every moment become a beautiful memory.
+            <br><br>
+            Stay happy, stay blessed, and keep shining! ❤️
+            <br><br>
+            🎉 HAPPY BIRTHDAY! 🎉
+        </p>
+        <br>
+        <div style="font-size:35px">💖 🌹 🧸 🎀</div>
+    </div>
+
+    <footer>
+        Made with ❤️ just for you
+    </footer>
+
+</div>
+
+<script>
+function showSurprise() {
+    document.getElementById("surprise").style.display = "block";
+
+    for (let i = 0; i < 35; i++) {
+        setTimeout(createHeart, i * 70);
+    }
+
+    document.querySelector("button").textContent =
+        "💖 Your Surprise Is Opened!";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+
+    const symbols = ["❤️", "💖", "💕", "✨", "🌸", "💗"];
+    heart.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+}
+
+document.addEventListener("click", function(event) {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.textContent = "✨";
+    sparkle.style.left = event.clientX + "px";
+    sparkle.style.top = event.clientY + "px";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 1000);
+});
+
+setInterval(createHeart, 600);
+</script>
+
+</body>
+</html>
